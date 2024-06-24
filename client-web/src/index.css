@@ -1,0 +1,232 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("Montserrat-Thin.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --font-family-base: "Heebo", sans-serif;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  height: 100vh;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+ul,
+li,
+a {
+  outline-style: none;
+  list-style: none;
+}
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+*,
+body {
+  margin: 0;
+  padding: 0;
+  background: #f8f9fc;
+  font-family: var(--font-family-base);
+  line-height: 1.24;
+  font-weight: 300;
+  font-size: clamp(12px, 1.08vw, 14px);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.content {
+  max-width: 1300px;
+  padding-inline: 60px;
+}
+
+/* стиль всплывающего окна */
+.popup {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.473);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.popup-modal {
+  width: clamp(270px, 60vw, 950px);
+  padding: 20px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+.popup-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.popup-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(5px, 1.15vw, 15px);
+}
+.popup-header h2 {
+  font-size: clamp(12px, 1.23vw, 20px);
+  font-weight: 700;
+}
+.popup-header button > img {
+  width: clamp(10px, 1.54vw, 20px);
+  height: clamp(10px, 1.54vw, 20px);
+}
+.popup-main {
+  flex: 10 auto;
+  justify-content: center;
+}
+
+.popup-list,
+.popup-main-info,
+.popup-main,
+.popup_nutritional-value {
+  display: flex;
+  flex-direction: column;
+}
+.popup-main-info,
+.popup-list {
+  row-gap: clamp(5px, 0.77vw, 10px);
+}
+
+.popup-main,
+.popup_nutritional-value {
+  row-gap: clamp(5px, 1.15vw, 15px);
+}
+
+.popup-list li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 14px;
+}
+.popup-main h3 {
+  display: inline-block;
+  font-weight: 700;
+  font-size: clamp(12px, 1.5vw, 20px);
+}
+.popup-footer {
+  margin-top: 5px;
+}
+.popup-footer,
+.popup-footer nav {
+  display: flex;
+  align-items: center;
+}
+.popup-footer nav {
+  column-gap: 15px;
+  height: 60px;
+}
+.popup-footer nav p {
+  font-weight: 700;
+  font-size: 20px;
+}
+.popup-footer-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  font-weight: 700;
+  font-size: 20px;
+
+  border-radius: 50%;
+  border: 4px solid red;
+  color: red;
+  border-collapse: collapse;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.popup-footer-btn svg {
+  fill: red;
+  stroke: red;
+}
+.popup-footer-btn:hover {
+  color: #fff;
+}
+.popup-footer-btn:hover svg {
+  fill: #fff;
+  stroke: red;
+  background-color: #ffffff00;
+}
+.btnPlus svg {
+  border-radius: 50%;
+}
+.popup-footer-btn::before {
+  content: "";
+  background-color: #ffffff00;
+  position: absolute;
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 6px -1px #000000;
+}
+.popup-footer-btn:hover {
+  border-color: #fff;
+  background-color: red;
+}
+.popup-footer-btn:hover::before {
+  border-color: red;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 700px) {
+  .popup-modal {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
