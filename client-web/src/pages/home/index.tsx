@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Link } from "react-router-dom";
-import { AdvertisingBanner, Popup } from "../../components";
+import { AdvertisingBanner, Popup, Categories } from "../../components";
 export function Home() {
   const [ascentModal, setAscentModal] = useState(false);
 
@@ -21,8 +21,9 @@ export function Home() {
         }}>
         popup
       </button>
-      <header className="stock">
+      <header className="df fdc rg46 stock">
         <AdvertisingBanner />
+        <Categories />
       </header>
     </div>
   );

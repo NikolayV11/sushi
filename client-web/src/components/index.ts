@@ -6,3 +6,5 @@ export * from "./promoCode";
 export * from "./cartPanel";
 export * from "./basketItemPanel";
 export * from "./advertisingBanner";
+export * from "./categories";
+export * from "./categoryMap";

@@ -92,6 +92,10 @@ a {
   flex-direction: column;
 }
 
+.rg46 {
+  row-gap: 46px;
+}
+
 .main-container {
   position: relative;
   column-gap: 30px;
@@ -100,6 +104,7 @@ a {
   max-width: 1410px;
   width: 100%;
 }
+
 button {
   border: none;
   display: flex;
@@ -579,6 +584,35 @@ main {
   background-size: contain;
   background-repeat: no-repeat;
   border-radius: 12px;
+}
+
+/* Шапка главной страницы  */
+
+.stock {
+}
+
+.categories {
+  row-gap: 20px;
+}
+
+.categories-body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.btnCategory {
+  width: 138px;
+  height: 190px;
+  padding: 19px;
+  border-radius: 12px;
+  background-color: #fff;
 }
 
 @media (max-width: 1024px) {
