@@ -4,7 +4,7 @@ export type ListType = {
 };
 
 export type TypePhoneList = {
-  link: number;
+  link: string;
   title: string;
 };
 
@@ -18,6 +18,6 @@ export const menuList: ListType[] = [
 ];
 
 export const phoneList: TypePhoneList[] = [
-  { link: 37529321000, title: "+375 (29) 351 00 00" },
-  { link: 37529321000, title: "+375 (29) 351 00 00" },
+  { link: "37529321000", title: "+375 (29) 351 00 00" },
+  { link: "37529321000", title: "+375 (29) 351 00 00" },
 ];

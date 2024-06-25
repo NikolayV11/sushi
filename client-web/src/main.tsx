@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { store } from "./store/store";
 
-import { Home, Order } from "./pages/index.ts";
+import { Home, News, Order, Stock, About, Career, Reviews, Profile } from "./pages/index.ts";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,12 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "/order", element: <Order /> },
+      { path: "/stock", element: <Stock /> },
+      { path: "/news", element: <News /> },
+      { path: "/about", element: <About /> },
+      { path: "/career", element: <Career /> },
+      { path: "/reviews", element: <Reviews /> },
+      { path: "/profile", element: <Profile /> },
     ],
   },
 ]);

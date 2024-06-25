@@ -5,14 +5,29 @@
   font-style: normal;
   font-display: swap;
 }
+
 :root {
   --font-family-base: "Heebo", sans-serif;
 }
+
 #root {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
   height: 100vh;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  aspect-ratio: 1 !important;
+  margin: -1 !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
 }
 
 /**
@@ -37,7 +52,10 @@ li,
 a {
   outline-style: none;
   list-style: none;
+  text-decoration: none;
+  color: inherit;
 }
+
 /**
   Убираем стандартный маркер маркированному списку,
   у которого есть атрибут class
@@ -46,12 +64,37 @@ a {
   list-style: none;
 }
 
+.w100 {
+  width: 100%;
+}
+
+.df {
+  display: flex;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.aic {
+  align-items: center;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
 button {
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 *,
 body {
   margin: 0;
@@ -68,8 +111,126 @@ main {
 }
 
 .content {
-  max-width: 1300px;
-  padding-inline: 60px;
+  max-width: 1770px;
+  padding-inline: 15px;
+  margin: 0 auto;
+}
+
+/* header */
+.header {
+}
+
+.header-block {
+  border-bottom: 2px solid #b4b3b355;
+  padding-bottom: 20px;
+  height: clamp(70px, 9.38vw, 122px);
+  gap: 10px;
+}
+
+.header-logo {
+  width: clamp(85px, 12vw, 225px);
+}
+
+.header-nav {
+  column-gap: 2vw;
+  height: 100%;
+}
+
+.header-link-list {
+  height: 100%;
+  column-gap: 15px;
+}
+.header-link-item {
+  position: relative;
+  height: 100%;
+}
+.header-link-item a {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  white-space: nowrap;
+  font-size: clamp(12px, 1vw, 22px);
+  transition: all 0.4s ease-in-out;
+}
+.header-link-item a:hover {
+  text-shadow: red 1px 0 10px;
+}
+.url-active::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  border: 1px solid red;
+  border-radius: 3px 3px 0 0;
+  background-color: red;
+  bottom: -20px;
+}
+
+.header-phone-block {
+  gap: clamp(5px, 1vw, 18px);
+}
+
+.header-phone-img {
+  width: clamp(20px, 3.85vw, 50px);
+}
+
+.header-phone-list {
+  gap: 5px;
+}
+
+.header-phone-item a {
+  font-size: clamp(8px, 1vw, 14px);
+  white-space: nowrap;
+}
+
+.header-right-block {
+  column-gap: clamp(10px, 1.2vw, 30px);
+}
+
+.search-block {
+  position: relative;
+  height: 50px;
+}
+
+.search-block svg {
+  position: absolute;
+  background-color: initial;
+  top: 50%;
+  left: 18px;
+  transform: translate(0%, -50%);
+}
+
+#search {
+  width: clamp(70px, 8vw, 210px);
+  height: 50px;
+  padding-left: 60px;
+  padding-right: 10px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  border: none;
+}
+
+#search:focus {
+  outline: none;
+}
+
+.profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 0, 0);
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.profile svg {
+  fill: rgb(255, 255, 255);
+  background-color: initial;
+}
+
+.profile:hover {
+  box-shadow: 0px 0px 11px 2px black;
 }
 
 /* стиль всплывающего окна */
@@ -94,6 +255,7 @@ main {
   align-items: center;
   gap: 12px;
 }
+
 .popup-img {
   width: 100%;
   height: auto;
@@ -113,14 +275,17 @@ main {
   justify-content: space-between;
   margin-bottom: clamp(5px, 1.15vw, 15px);
 }
+
 .popup-header h2 {
   font-size: clamp(12px, 1.23vw, 20px);
   font-weight: 700;
 }
+
 .popup-header button > img {
   width: clamp(10px, 1.54vw, 20px);
   height: clamp(10px, 1.54vw, 20px);
 }
+
 .popup-main {
   flex: 10 auto;
   justify-content: center;
@@ -133,6 +298,7 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .popup-main-info,
 .popup-list {
   row-gap: clamp(5px, 0.77vw, 10px);
@@ -148,27 +314,33 @@ main {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 14px;
 }
+
 .popup-main h3 {
   display: inline-block;
   font-weight: 700;
   font-size: clamp(12px, 1.5vw, 20px);
 }
+
 .popup-footer {
   margin-top: 5px;
 }
+
 .popup-footer,
 .popup-footer nav {
   display: flex;
   align-items: center;
 }
+
 .popup-footer nav {
   column-gap: 15px;
   height: 60px;
 }
+
 .popup-footer nav p {
   font-weight: 700;
   font-size: 20px;
 }
+
 .popup-footer-btn {
   position: relative;
   width: 28px;
@@ -186,21 +358,26 @@ main {
   justify-content: center;
   text-align: center;
 }
+
 .popup-footer-btn svg {
   fill: red;
   stroke: red;
 }
+
 .popup-footer-btn:hover {
   color: #fff;
 }
+
 .popup-footer-btn:hover svg {
   fill: #fff;
   stroke: red;
   background-color: #ffffff00;
 }
+
 .btnPlus svg {
   border-radius: 50%;
 }
+
 .popup-footer-btn::before {
   content: "";
   background-color: #ffffff00;
@@ -214,10 +391,12 @@ main {
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 6px -1px #000000;
 }
+
 .popup-footer-btn:hover {
   border-color: #fff;
   background-color: red;
 }
+
 .popup-footer-btn:hover::before {
   border-color: red;
 }

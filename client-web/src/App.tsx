@@ -6,7 +6,9 @@ function App() {
     <>
       <Header />
       <main>
-        <Outlet />
+        <div className="content">
+          <Outlet />
+        </div>
       </main>
     </>
   );
