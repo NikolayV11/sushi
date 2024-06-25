@@ -1,6 +1,6 @@
 export function Career() {
   return (
-    <div>
+    <div className="container-page">
       <h3>Страница "Карьера" в разработке</h3>
     </div>
   );

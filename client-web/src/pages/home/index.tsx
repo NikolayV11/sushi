@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Link } from "react-router-dom";
-import { Popup } from "../../components";
+import { AdvertisingBanner, Popup } from "../../components";
 export function Home() {
   const [ascentModal, setAscentModal] = useState(false);
 
@@ -10,19 +10,20 @@ export function Home() {
   }
 
   return (
-    <>
-      <div className="content">
-        <h1>Home pages</h1>
-        <Link to="/order">Order</Link>
-        <Popup status={ascentModal} ascentPopup={ascentPopup} />
-        <button
-          type="button"
-          onClick={() => {
-            ascentPopup();
-          }}>
-          popup
-        </button>
-      </div>
-    </>
+    <div className="container-page">
+      <h1>Home pages</h1>
+      <Link to="/order">Order</Link>
+      <Popup status={ascentModal} ascentPopup={ascentPopup} />
+      <button
+        type="button"
+        onClick={() => {
+          ascentPopup();
+        }}>
+        popup
+      </button>
+      <header className="stock">
+        <AdvertisingBanner />
+      </header>
+    </div>
   );
 }

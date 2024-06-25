@@ -7,7 +7,7 @@ function App() {
       <Header />
       <main>
         <div className="content">
-          <div className="main-container">
+          <div className="df main-container">
             <Outlet />
             <CartPanel />
           </div>

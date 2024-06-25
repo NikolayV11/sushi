@@ -5,3 +5,4 @@ export * from "./search";
 export * from "./promoCode";
 export * from "./cartPanel";
 export * from "./basketItemPanel";
+export * from "./advertisingBanner";
