@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "./components";
+import { Header, CartPanel } from "./components";
 
 function App() {
   return (
@@ -7,7 +7,10 @@ function App() {
       <Header />
       <main>
         <div className="content">
-          <Outlet />
+          <div className="main-container">
+            <Outlet />
+            <CartPanel />
+          </div>
         </div>
       </main>
     </>
