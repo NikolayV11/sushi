@@ -8,6 +8,9 @@
 
 :root {
   --font-family-base: "Heebo", sans-serif;
+  --background-color: #f8f9fc;
+  --background-color-card: #fff;
+  --background-color-search: #e5e5e5;
 }
 
 #root {
@@ -56,6 +59,11 @@ a {
   color: inherit;
 }
 
+div,
+nav {
+  background-color: inherit;
+}
+
 /**
   Убираем стандартный маркер маркированному списку,
   у которого есть атрибут class
@@ -91,18 +99,32 @@ a {
 .fdc {
   flex-direction: column;
 }
+.fww {
+  flex-wrap: wrap;
+}
 
 .rg46 {
   row-gap: 46px;
 }
-
+.rg20 {
+  row-gap: 20px;
+}
+.cg20 {
+  column-gap: 20px;
+}
+.g20 {
+  gap: 20px;
+}
+.g10 {
+  gap: 10px;
+}
 .main-container {
-  position: relative;
   column-gap: 30px;
 }
 .container-page {
   max-width: 1410px;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 button {
@@ -116,9 +138,17 @@ button {
 body {
   margin: 0;
   padding: 0;
-  background: #f8f9fc;
+  background-color: var(--background-color);
   font-family: var(--font-family-base);
   line-height: 1.24;
+}
+
+h1,
+h2,
+h3 {
+  background-color: initial;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 main {
@@ -224,7 +254,7 @@ main {
   height: 50px;
   padding-left: 60px;
   padding-right: 10px;
-  background-color: #e5e5e5;
+  background-color: var(--background-color-search);
   border-radius: 20px;
   border: none;
 }
@@ -454,10 +484,12 @@ main {
 }
 
 .cart-panel-block {
-  position: static;
-  top: 12px;
+  position: sticky;
+  float: right;
+  top: 20px;
   width: 360px;
-  row-gap: 20px;
+  height: 100%;
+  max-height: 10000px;
 }
 
 .cart-panel-cart {
@@ -526,6 +558,7 @@ main {
   padding: 10px;
   border-radius: 12px;
   row-gap: 5px;
+  background-color: var(--background-color);
 }
 
 .cart-product-header {
@@ -583,7 +616,7 @@ main {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  border-radius: 12px;
+  border-radius: 25px;
 }
 
 /* Шапка главной страницы  */
@@ -592,7 +625,12 @@ main {
 }
 
 .categories {
-  row-gap: 20px;
+}
+.categories-header button img {
+  transition: all 1s ease-in-out;
+}
+.reversal {
+  transform: rotate(0.5turn);
 }
 
 .categories-body {
@@ -605,6 +643,17 @@ main {
   margin: auto;
   flex-wrap: wrap;
   gap: 20px;
+  transition: all 1s ease-in-out;
+  overflow: hidden;
+  max-height: 195px;
+  height: 100%;
+}
+
+.openCategory {
+  height: 100%;
+  max-height: 2000px;
+  transition: all 1s ease-in-out;
+  padding-bottom: 5px;
 }
 
 .btnCategory {
@@ -613,8 +662,51 @@ main {
   padding: 19px;
   border-radius: 12px;
   background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.btnCategory img {
+  transition: all 0.2s ease-in-out;
+}
+.btnCategory:hover {
+  box-shadow: 3px 4px 5px 0px #767676;
+}
+.btnCategory:hover img {
+  transform: scale(1.15);
+}
+.block-product {
 }
 
+/* сарта продукта */
+
+.card-product {
+  width: 320px;
+  height: 276px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 12px;
+  transition: all 0.4s ease-in-out;
+}
+.card-product:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 6px 2px #767676;
+}
+.card-product_footer {
+}
+
+.card-product_title {
+}
+
+.card-product_footer-info {
+  gap: 5px;
+}
+
+.card-product_footer-info_price {
+  font-weight: 700;
+}
+
+.card-product_footer-info_quantity {
+  font-size: 12px;
+}
 @media (max-width: 1024px) {
 }
 

@@ -1,4 +1,4 @@
-import { TypeCategory } from "./listCategory";
+import { TypeCategory } from "../../type/";
 
 export function CategoryMap(props: TypeCategory) {
   return (

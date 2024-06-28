@@ -3,7 +3,7 @@ import { PromoCode, BasketItemPanel } from "../";
 
 export function CartPanel() {
   return (
-    <div className="df fdc cart-panel-block">
+    <div className="df fdc rg20 cart-panel-block">
       <PromoCode />
       <div className="df fdc cart-panel-cart">
         <header className="cart-panel-header">

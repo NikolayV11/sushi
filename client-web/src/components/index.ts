@@ -8,3 +8,5 @@ export * from "./basketItemPanel";
 export * from "./advertisingBanner";
 export * from "./categories";
 export * from "./categoryMap";
+export * from "./cardProduct";
+export * from "./productCounter";

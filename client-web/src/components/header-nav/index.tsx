@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { menuList, phoneList } from "./navList";
+import { menuList, phoneList } from "../../type/";
 
 export function HeaderNav() {
   const location = useLocation();
