@@ -38,16 +38,21 @@ function getPrice(dish_id) {
     });
 }
 
-function getNumberOfDish(category_id) {
+function getNumberOfDish(params) {
+  const str = params.search
+    ? `select count(*) as allProduct from dish where name like '%${params.search}%' and dish.category_id = ${params.category}`
+    : `select count(*) as allProduct from dish where dish.category_id = ${params.category}`;
+  console.log(str);
   return bd
     .promise()
-    .query(`select count(*) as allProduct from dish where dish.category_id = ${category_id} `)
+    .query(str)
     .then(([rows]) => rows[0].allProduct);
 }
 
 /* объедением блюдо с ценами */
 async function getProduct(params) {
-  const numOfDish = await getNumberOfDish(params.category);
+  console.log(params);
+  const numOfDish = await getNumberOfDish(params);
   console.log(params, numOfDish);
   const infoPage = getPageLimit(numOfDish, +params.page, params.limit);
   console.log(infoPage);
