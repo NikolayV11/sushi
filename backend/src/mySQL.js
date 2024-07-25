@@ -51,11 +51,10 @@ function getNumberOfDish(params) {
 
 /* объедением блюдо с ценами */
 async function getProduct(params) {
-  console.log(params);
   const numOfDish = await getNumberOfDish(params);
-  console.log(params, numOfDish);
+
   const infoPage = getPageLimit(numOfDish, +params.page, params.limit);
-  console.log(infoPage);
+
   const dish = await getDish({
     category: params.category,
     limit: infoPage.limit,

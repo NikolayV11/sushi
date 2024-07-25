@@ -22,8 +22,8 @@ export function Categories() {
         </button>
       </header>
       <div className={`df g20 categories-body ${openCategory && "openCategory"}`}>
-        {categoryList.map((item, index) => {
-          return <CategoryMap key={index} {...item} />;
+        {categoryList.map((item) => {
+          return <CategoryMap key={item.parameter} {...item} />;
         })}
       </div>
     </div>

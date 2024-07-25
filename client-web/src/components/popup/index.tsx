@@ -1,4 +1,15 @@
-export function Popup({ ascentPopup, status }: { ascentPopup: () => void; status: boolean }) {
+import { BASE_URL } from "../../confects";
+import { Dish } from "../../type";
+
+export function Popup({
+  ascentPopup,
+  status,
+  params,
+}: {
+  ascentPopup: () => void;
+  status: boolean;
+  params: Dish;
+}) {
   return (
     <>
       {status && (
@@ -6,14 +17,14 @@ export function Popup({ ascentPopup, status }: { ascentPopup: () => void; status
           <div className="popup-modal">
             <img
               className="popup-img"
-              src="public/img/1.jpg"
-              alt="фото суши"
+              src={`${BASE_URL}/public/img/${params.img_url}`}
+              alt={`${params.name}`}
               width={480}
               height={480}
             />
             <div className="popup-info">
               <header className="popup-header">
-                <h2>Нигири с тунцом опаленным</h2>
+                <h2>{params.name}</h2>
                 <button
                   onClick={() => {
                     ascentPopup();
@@ -24,32 +35,36 @@ export function Popup({ ascentPopup, status }: { ascentPopup: () => void; status
               </header>
               <main className="popup-main">
                 <div className="popup-main-info">
-                  <p>
-                    Тунец опаленный, стружка тунца, майонез, соус тайский сладкий чили, васаби 0,5 г
-                  </p>
-                  <p>Вес одной порции 38 г</p>
+                  <p>{params.description}</p>
+                  <p>Вес одной порции {params.energy_value} г</p>
                 </div>
                 <div className="popup_nutritional-value">
                   <p>Пищевая ценность на 100 г:</p>
                   <ul className="popup-list">
                     <li>
                       <div>Энерг. ценность</div>
-                      <div>164.10 ккал</div>
+                      <div>{params.energy_value} ккал</div>
                     </li>
                     <li>
                       <div>Белки</div>
-                      <div>10.80 г</div>
+                      <div>{params.squirrels} г</div>
                     </li>
                     <li>
                       <div>Жиры</div>
-                      <div>2.50 г</div>
+                      <div>{params.fats} г</div>
                     </li>
                     <li>
                       <div>Углеводы</div>
-                      <div>24.20 г</div>
+                      <div>{params.carbohydrates} г</div>
                     </li>
                   </ul>
-                  <h3>2.90 руб за 1 порцию (1шт)</h3>
+                  {params.price.map((item) => {
+                    return (
+                      <h3>
+                        {item.price} руб за 1 порцию ({item.portion}шт)
+                      </h3>
+                    );
+                  })}
                 </div>
               </main>
               <footer className="popup-footer">

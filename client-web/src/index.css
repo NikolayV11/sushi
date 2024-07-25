@@ -304,6 +304,7 @@ main {
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 12px;
+  background-color: var(--background-color-card);
 }
 
 .popup-img {
@@ -667,11 +668,14 @@ main {
 .btnCategory img {
   transition: all 0.2s ease-in-out;
 }
-.btnCategory:hover {
+/* .btnCategory:hover {
   box-shadow: 3px 4px 5px 0px #767676;
-}
-.btnCategory:hover img {
+} */
+.btnCategory:hover > img {
   transform: scale(1.15);
+}
+.activeCategory {
+  box-shadow: inset 0px 1px 13px #000000;
 }
 .block-product {
 }
@@ -687,7 +691,6 @@ main {
   transition: all 0.4s ease-in-out;
 }
 .card-product:hover {
-  transform: scale(1.1);
   box-shadow: 0px 0px 6px 2px #767676;
 }
 .card-product_footer {
