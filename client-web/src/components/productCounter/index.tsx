@@ -1,7 +1,15 @@
-export function ProductCounter() {
+export function ProductCounter({
+  addBasketDish,
+  count,
+  subtractionBasketDish,
+}: {
+  addBasketDish: () => void;
+  count: number;
+  subtractionBasketDish: () => void;
+}) {
   return (
     <nav className="df aic jcsb  cart-product-body_nav">
-      <button type="button" className="popup-footer-btn btnMin">
+      <button type="button" className="popup-footer-btn btnMin" onClick={subtractionBasketDish}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="15"
@@ -11,8 +19,8 @@ export function ProductCounter() {
           <path d="M0.0542189 3.864V0.12H9.95422V3.864H0.0542189Z" />
         </svg>
       </button>
-      <p>2</p>
-      <button type="button" className="popup-footer-btn btnPlus">
+      <p>{count}</p>
+      <button type="button" className="popup-footer-btn btnPlus" onClick={addBasketDish}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="20px"

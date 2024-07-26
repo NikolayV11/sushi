@@ -58,14 +58,12 @@ export const dishSlice = createSlice({
     builder
       .addCase(fetchDish.fulfilled, (state, action: PayloadAction<FetchSushi>) => {
         state.item = action.payload;
-        console.log(action.payload, "fulfilled");
       }) // pending в ожидании
       .addCase(fetchDish.pending, (state) => {
         state.item.dish = [];
         state.item.pages = { allPages: 1, page: 1 };
       }) // rejected отклоненный
       .addCase(fetchDish.rejected, (state) => {
-        console.log("error");
         state.item.dish = [];
         state.item.pages = { allPages: 1, page: 1 };
       });

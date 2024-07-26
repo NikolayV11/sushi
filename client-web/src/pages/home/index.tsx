@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { AdvertisingBanner, Categories, CardProduct } from "../../components";
 
 import { fetchDish } from "../../store/ProductSlice";
-import { useAppDispatch } from "../../store/hooks";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+
 export function Home() {
   const { category, limit, search } = useAppSelector((state) => state.dish);
   const dishArray = useAppSelector((state) => state.dish.item.dish);

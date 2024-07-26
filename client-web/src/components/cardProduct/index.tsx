@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductCounter } from "../";
 import { BASE_URL } from "../../confects";
 import { Dish } from "../../type";
 import { Popup } from "../";
+
+import { addDishBasket, subtractionDish } from "../../store/Basket";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+
 export function CardProduct(params: Dish) {
   const [statusPopup, setStatusPopup] = useState(false);
+
+  const [indexDish, setIndexDish] = useState(0);
+
+  const basket = useAppSelector((state) => state.basket.basket);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const count = basket.find((item) => item.id === params.id);
+    if (count) {
+      setIndexDish(count.count);
+    }
+  }, [basket]);
+
   function openPopup() {
     setStatusPopup(!statusPopup);
   }
@@ -40,7 +57,11 @@ export function CardProduct(params: Dish) {
             );
           })}
         </div>
-        <ProductCounter />
+        <ProductCounter
+          addBasketDish={() => dispatch(addDishBasket(params))}
+          count={indexDish}
+          subtractionBasketDish={() => dispatch(subtractionDish(params.id))}
+        />
       </div>
     </div>
   );

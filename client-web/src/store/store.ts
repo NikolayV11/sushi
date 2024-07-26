@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dish from "./ProductSlice";
-import { useDispatch } from "react-redux";
+import basket from "./Basket";
 
 export const store = configureStore({
-  reducer: { dish },
+  reducer: { dish, basket },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

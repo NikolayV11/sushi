@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { PromoCode, BasketItemPanel } from "../";
 
+import { useAppSelector } from "../../store/hooks";
+
 export function CartPanel() {
+  const { basket, price } = useAppSelector((select) => select.basket);
   return (
     <div className="df fdc rg20 cart-panel-block">
       <PromoCode />
@@ -10,15 +13,16 @@ export function CartPanel() {
           <h3>Корзина</h3>
         </header>
         <div className="df fdc cart-panel-body">
-          <BasketItemPanel />
-          <BasketItemPanel />
-          <BasketItemPanel />
+          {basket.slice(0, 4).map((item) => {
+            return <BasketItemPanel key={item.id} params={item} />;
+          })}
+          {basket.length >= 4 && <Link to="/basket">Перейди в корзину</Link>}
         </div>
         <div className="delimiter"></div>
         <div className=" df fdc cart-panel-footer">
           <div className="df jcsb aic cart-panel-footer_price">
             <div>Сумма заказа</div>
-            <div>60.80 руб</div>
+            <div>{price} руб</div>
           </div>
           <Link className="aic jcc" to={"/"}>
             <svg

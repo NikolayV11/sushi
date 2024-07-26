@@ -23,6 +23,11 @@ export type Dish = {
   price: PriceDish[];
 };
 
+export type DishBasket = Dish & {
+  count: number;
+  priceBasket: number;
+};
+
 export type FetchSushi = {
   dish: Dish[];
   pages: InfoPages;
